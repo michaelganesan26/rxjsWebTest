@@ -1,0 +1,11 @@
+textArea:not(:hover){
+  border-left: 10px solid orange;
+
+}
+
+textArea:hover{
+   border-left: 10px solid lightgreen;
+
+
+
+}
