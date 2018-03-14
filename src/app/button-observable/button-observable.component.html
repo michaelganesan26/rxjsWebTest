@@ -2,4 +2,12 @@
   button-observable works!
 </p>
 <button #myButton title="Double Click with Debounce!">Sample Button Observable</button>
-<button #myButtonTwo (contextmenu) = "hideContextMenu($event)">Context Menu Hide</button>
+<button #myButtonTwo (contextmenu)="hideContextMenu($event)">Context Menu Hide(Double Click)</button>
+<div>
+   <button #addData class='myButton'>Add Data</button>
+    <ul>
+      <li *ngFor="let x of data; let i=index">
+        {{x}}
+      </li>
+    </ul>
+  </div>
