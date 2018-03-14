@@ -1,7 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef,AfterViewInit, Renderer2 } from '@angular/core';
+
+//rxjs
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/filter';
+import  'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/buffer';
+
 
 import { Subscriber } from 'rxjs/Subscriber';
 
@@ -21,23 +27,35 @@ export class MouseObservableComponent implements OnInit,AfterViewInit {
   btnStream: Observable<MouseEvent>;
   textAreaStream: Observable<MouseEvent>;
 
+  rightClickSource: Observable<MouseEvent>;
+
   constructor(private renderer:Renderer2) {
+
+     
+
 
    }
 
   ngOnInit() {
   }
 
+  //This is how you hide the context Menu
+  contextMenuHide(event:any){
+     return(true);
+  }
+
+
   ngAfterViewInit(){
 
-    console.log(this.btn.nativeElement);
+     console.log(this.btn.nativeElement);
     //this.renderer.setProperty(this.btn.nativeElement,'innerText','Wow, You just changed me');
     this.btn.nativeElement.innerText = "Bless You always!";
 
     this.btnStream = Observable.fromEvent<MouseEvent>(this.btnTwo.nativeElement,'click');
 
     this.btnStream.subscribe((event:MouseEvent)=>{
-       console.log(`Your coordinate is: ${event.clientX},${event.clientY} px,`);
+        console.log(event.buttons);
+       //console.log(`Your coordinate is: ${event.clientX},${event.clientY} px,`);
     });
     
 

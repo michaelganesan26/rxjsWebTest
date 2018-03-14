@@ -6,12 +6,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MouseObservableComponent } from './mouse-observable/mouse-observable.component';
+import { ButtonObservableComponent } from './button-observable/button-observable.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MouseObservableComponent
+    MouseObservableComponent,
+    ButtonObservableComponent
   ],
   imports: [
     BrowserModule

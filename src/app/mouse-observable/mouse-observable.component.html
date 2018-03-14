@@ -2,7 +2,7 @@
   mouse-observable works!
 </p>
 <button #btnOne (click)='testClick($event)' >Press Me</button>
-<button #btnTwo>Second Button Observable</button>
+<button #btnTwo (contextmenu)="contextMenuHide($event)">Second Button Observable</button>
 <h3>
   Text Box Area:
 </h3>
